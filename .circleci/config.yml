@@ -18,7 +18,7 @@ jobs:
           key: nim-0000
           paths:
             - .nimble
-      - run: nimble build -y
+      # - run: nimble build -y
       - run: nim c -r tests/main.nim
       - store_artifacts:
           path: test-reports/
