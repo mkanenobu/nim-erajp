@@ -4,22 +4,27 @@ type
   JapaneseEra* = ref object of RootObj
     AlphabetEra*: string
     KanziEra*: string
-    KanziEraOneChar*: string
     IntEraYear*: int
 
-  EraStartYear = enum
+  EraStartDate = enum
     Meiji  = "1868-01-01"
     Taisyo = "1912-07-30"
     Syowa  = "1926-12-25"
     Heisei = "1989-01-08"
 
   EraDiff {.pure.} = enum
-    Meiji = 1867
+    Meiji  = 1867
     Taisyo = 1911
-    Syowa = 1925
+    Syowa  = 1925
     Heisei = 1988
 
-proc parse(dt: EraStartYear): DateTime =
+  EraNames {.pure.} = enum
+    Meiji  = "明治"
+    Taisyo = "大正"
+    Syowa  = "昭和"
+    Heisei = "平成"
+
+proc parse(dt: EraStartDate): DateTime =
   parse($dt, "yyyy-MM-dd")
 
 proc initJapaneseEra*(dt: DateTime): JapaneseEra =
@@ -34,29 +39,24 @@ proc initJapaneseEra*(dt: DateTime): JapaneseEra =
     raise newException(ValueError, "Unsupported date")
   elif parse(Heisei) <= dt:
     alphabetEra = "H"
-    kanziEra = "平成"
-    kanziEraOneChar = "平"
+    kanziEra = $EraNames.Heisei
     intEraYear = dt.year - int(EraDiff.Heisei)
   elif parse(Syowa) <= dt:
     alphabetEra = "S"
-    kanziEra = "昭和"
-    kanziEraOneChar = "昭"
+    kanziEra = $EraNames.Syowa
     intEraYear = dt.year - int(EraDiff.Syowa)
   elif parse(Taisyo) <= dt:
     alphabetEra = "T"
-    kanziEra = "大正"
-    kanziEraOneChar = "大"
+    kanziEra = $EraNames.Taisyo
     intEraYear = dt.year - int(EraDiff.Taisyo)
   elif parse(Meiji) <= dt:
     alphabetEra = "M"
-    kanziEra = "明治"
-    kanziEraOneChar = "明"
+    kanziEra = $EraNames.Meiji
     intEraYear = dt.year - int(EraDiff.Meiji)
 
   return JapaneseEra(
     AlphabetEra: alphabetEra,
     KanziEra: kanziEra,
-    KanziEraOneChar: kanziEraOneChar,
     IntEraYear: intEraYear,
   )
 
