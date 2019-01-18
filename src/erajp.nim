@@ -1,7 +1,7 @@
 import times, strutils, sequtils
 
 type
-  JapaneseEra* = object
+  JapaneseEra* = ref object of RootObj
     AlphabetEra*: string
     KanziEra*: string
     KanziEraOneChar*: string
