@@ -2,6 +2,7 @@
 # nim-erajp
 
 ```
+import erajp
 initJapaneseEra(dt: DateTime): Object =
 ```
 
