@@ -1,5 +1,10 @@
 # nim-erajp
-西暦のDateTimeから和暦オブジェクトを生成
+
+```
+initJapaneseEra(dt: DateTime): Object =
+```
+
+DateTimeから和暦オブジェクトを生成
 
 AlphabetEra: アルファベット一文字(例: "H"
 KanziEra: 漢字(例: "昭和"
