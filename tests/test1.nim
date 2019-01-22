@@ -18,4 +18,3 @@ test "era":
   check initJapaneseEra(t2).IntEraYear == 1
   check initJapaneseEra(t1).KanziEra == "昭和"
   check initJapaneseEra(t2).KanziEra == "平成"
-  check initJapaneseEra(t2).KanziEra == "明治" # fail

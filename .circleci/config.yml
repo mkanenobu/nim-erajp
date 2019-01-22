@@ -13,13 +13,11 @@ jobs:
           command: |
             # Example: adding OS libraries
             apt-get update
-            # apt-get install -y --no-install-recommends libsodium23
+            apt-get install -y --no-install-recommends libsodium23
       - save_cache:
           key: nim-0000
           paths:
             - .nimble
-      # - run: nimble build -y
-      # - run: nim c -r tests/main.nim
       - run: nimble test
       - store_artifacts:
           path: test-reports/
