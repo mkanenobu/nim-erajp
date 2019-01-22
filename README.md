@@ -1,6 +1,14 @@
 [![CircleCI](https://circleci.com/gh/mkanenobu/nim-erajp/tree/master.svg?style=svg)](https://circleci.com/gh/mkanenobu/nim-erajp/tree/master)  
 # nim-erajp
 
+## Installation
+
+```
+nimble install https://github.com/mkanenobu/nim-erajp
+```
+
+## Usage
+
 ```
 initJapaneseEra(dt: DateTime): Object =
 ```
