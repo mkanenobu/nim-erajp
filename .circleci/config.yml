@@ -18,7 +18,7 @@ jobs:
           key: nim-0000
           paths:
             - .nimble
-      - run: nimble test
+      - run: nim c -r tests/test1.nim
       - store_artifacts:
           path: test-reports/
           destination: tr1
