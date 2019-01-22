@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: nimlang/nim:alpine
+      - image: nimlang/nim:0.19.0-ubuntu
     steps:
       - run: echo 'export PATH=~/.nimble/bin:$PATH' >> $BASH_ENV
       - checkout
@@ -12,8 +12,8 @@ jobs:
       - run:
           command: |
             # Example: adding OS libraries
-            # apt-get update
-            # apt-get install -y --no-install-recommends libsodium23
+            apt-get update
+            apt-get install -y --no-install-recommends libsodium23
             nim -v
       - save_cache:
           key: nim-0000
