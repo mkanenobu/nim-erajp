@@ -20,6 +20,7 @@ jobs:
             - .nimble
       # - run: nimble build -y
       - run: nim c -r tests/main.nim
+      - run: nimble test
       - store_artifacts:
           path: test-reports/
           destination: tr1
