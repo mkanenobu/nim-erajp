@@ -10,6 +10,7 @@ nimble install https://github.com/mkanenobu/nim-erajp
 ## Usage
 
 ```
+import erajp
 initJapaneseEra(dt: DateTime): Object =
 ```
 
