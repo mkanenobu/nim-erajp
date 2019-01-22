@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: nimlang/nim
+      - image: nimlang/nim:0.19.2
     steps:
       - run: echo 'export PATH=~/.nimble/bin:$PATH' >> $BASH_ENV
       - checkout
@@ -18,7 +18,6 @@ jobs:
           key: nim-0000
           paths:
             - .nimble
-      - run: nim c -r test/test1.nim
       - run: nimble test
       - store_artifacts:
           path: test-reports/
