@@ -12,9 +12,11 @@ import erajp
 let
   t1 = parse("1989-01-01", "yyyy-MM-dd")
   t2 = parse("1989-01-08", "yyyy-MM-dd")
+  t3 = parse("2019-05-01", "yyyy-MM-dd")
 
 test "era":
   check initJapaneseEra(t1).IntEraYear == 64
   check initJapaneseEra(t2).IntEraYear == 1
   check initJapaneseEra(t1).KanziEra == "昭和"
   check initJapaneseEra(t2).KanziEra == "平成"
+  check initJapaneseEra(t3).KanziEra == "令和"
